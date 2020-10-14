@@ -22,14 +22,25 @@ obama_face_encoding = face_recognition.face_encodings(obama_image)[0]
 biden_image = face_recognition.load_image_file("biden.jpg")
 biden_face_encoding = face_recognition.face_encodings(biden_image)[0]
 
+# Load a second sample picture and learn how to recognize it.
+GB_image = face_recognition.load_image_file("GB Photo TRX.jpg")
+GB_face_encoding = face_recognition.face_encodings(GB_image)[0]
+
+Amy_image = face_recognition.load_image_file("Amy Hizoune.jpg")
+Amy_face_encoding = face_recognition.face_encodings(Amy_image)[0]
+
 # Create arrays of known face encodings and their names
 known_face_encodings = [
     obama_face_encoding,
-    biden_face_encoding
+    biden_face_encoding,
+    GB_face_encoding,
+    Amy_face_encoding
 ]
 known_face_names = [
     "Barack Obama",
-    "Joe Biden"
+    "Joe Biden",
+    "Dr Gil",
+    "Amy at Work"
 ]
 
 # Initialize some variables
@@ -74,7 +85,6 @@ while True:
             face_names.append(name)
 
     process_this_frame = not process_this_frame
-
 
     # Display the results
     for (top, right, bottom, left), name in zip(face_locations, face_names):
