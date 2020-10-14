@@ -13,13 +13,11 @@ TEST_IMAGES = [
     "obama-1080p.jpg"
 ]
 
-
 def run_test(setup, test, iterations_per_test=5, tests_to_run=10):
     fastest_execution = min(timeit.Timer(test, setup=setup).repeat(tests_to_run, iterations_per_test))
     execution_time = fastest_execution / iterations_per_test
     fps = 1.0 / execution_time
     return execution_time, fps
-
 
 setup_locate_faces = """
 import face_recognition
