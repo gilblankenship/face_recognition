@@ -7,24 +7,36 @@ import numpy as np
 
 # Load a sample picture and learn how to recognize it.
 obama_image = face_recognition.load_image_file("obama.jpg")
-obama_face_encoding = face_recognition.face_encodings(obama_image)[0]
+biden_image = face_recognition.load_image_file("biden.jpg")
+amy_image = face_recognition.load_image_file("Amy Hizoune.jpg")
+carole_image = face_recognition.load_image_file("Carole 2018.jpg")
+gil_image = face_recognition.load_image_file("GB Photo TRX.jpg")
 
 # Load a second sample picture and learn how to recognize it.
-biden_image = face_recognition.load_image_file("biden.jpg")
 biden_face_encoding = face_recognition.face_encodings(biden_image)[0]
+obama_face_encoding = face_recognition.face_encodings(obama_image)[0]
+amy_face_encoding = face_recognition.face_encodings(amy_image)[0]
+carole_face_encoding = face_recognition.face_encodings(carole_image)[0]
+gil_face_encoding = face_recognition.face_encodings(gil_image)[0]
 
 # Create arrays of known face encodings and their names
 known_face_encodings = [
+    biden_face_encoding,
     obama_face_encoding,
-    biden_face_encoding
+    amy_face_encoding,
+    carole_face_encoding,
+    gil_face_encoding
 ]
 known_face_names = [
     "Barack Obama",
-    "Joe Biden"
+    "Joe Biden",
+    "Amy",
+    "Carole",
+    "Dr Gil"
 ]
 
 # Load an image with an unknown face
-unknown_image = face_recognition.load_image_file("two_people.jpg")
+unknown_image = face_recognition.load_image_file("Several People.jpg")
 
 # Find all the faces and face encodings in the unknown image
 face_locations = face_recognition.face_locations(unknown_image)
